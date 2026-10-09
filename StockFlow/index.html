@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StockFlow Autoglass</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="telaInicial">
+<h1>StockFlow</h1>
+<p>Sistema Autoglass - Conferência por LOTE</p>
+<button id="novaConferencia">Nova Conferência</button>
+</div>
+
+<div id="telaCadastro" style="display: none;">
+<h1>Nova Conferência</h1>
+<label>Número da NF:</label>
+<input type="text" id="numeroNF" placeholder="Digite o número da NF">
+<button id="adicionarNF">Adicionar NF</button>
+<h2>Notas fiscais adicionadas</h2>
+<ul id="listaNFs"></ul>
+<button id="iniciarConferencia">Continuar</button>
+<button id="voltar">Voltar</button>
+</div>
+
+<div id="telaConferencia" style="display: none;">
+<h1 id="tituloCarga"></h1>
+<ul id="resumoNFs"></ul>
+<div style="background:#eff6ff; border:1px solid #dbeafe; padding:10px; border-radius:10px; text-align:center; margin:12px 0;">
+  <span style="font-size:11px; color:#64748b;">CARGA AGRUPADA</span><br>
+  <span id="contadorNFs" style="font-weight:800; color:#1d4ed8;"></span>
+</div>
+
+<h2>BIPAGEM - Bipe o LOTE + ENTER</h2>
+<input type="text" id="bipagemLote" placeholder="Bipe o LOTE e pressione ENTER" autocomplete="off">
+<ul id="listaBipados"></ul>
+<br>
+<button id="finalizar">Finalizar Conferência</button>
+<button id="voltarNFs">Voltar às NFs</button>
+</div>
+
+<div id="telaRebipagem" style="display: none;">
+<h1 style="color: #d97706;">⚠️ Divergência Detectada</h1>
+<p style="text-align:center; color:#334155;">A carga possui lotes com divergência. Rebipe APENAS os lotes abaixo novamente para correção.</p>
+<ul id="listaDivergenciaPreview"></ul>
+<hr>
+<h2>Rebipagem - Bipe o LOTE</h2>
+<input type="text" id="rebipagemLote" placeholder="Bipe o LOTE + ENTER" autocomplete="off">
+<ul id="listaBipadosRebipagem"></ul>
+<br>
+<button id="conferirNovamente">Conferir Novamente</button>
+<button id="gerarDivergenciaForcado" style="background:#fef2f2; color:#991b1b;">Gerar Divergência Mesmo Assim</button>
+</div>
+
+<div id="telaDivergencia" style="display: none;">
+<h1>Divergência Gerada</h1>
+<p id="codigoDivergencia"></p>
+<ul id="listaDivergencia"></ul>
+<button id="voltarInicio">Nova Carga</button>
+</div>
+
+<div id="telaSucesso" style="display: none;">
+<h1 style="color: #16a34a;">✅ Conferência OK</h1>
+<p id="codigoSucesso"></p>
+<div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 15px; border-radius: 12px; text-align: center; font-weight: 700; color: #15803d;">
+Carga conferida 100% sem divergências.<br>Pronta para armazenar.
+</div>
+<br>
+<button id="voltarInicioSucesso">Nova Carga</button>
+</div>
+
+<div id="modalConfirm" style="display: none;">
+  <div id="modalBox">
+    <h2>Finalizar Conferência?</h2>
+    <p>Deseja realmente finalizar?</p>
+    <div style="display:flex; gap:10px; margin-top:18px;">
+      <button id="btnCancelar" style="flex:1; background:#f1f5f9; color:#334155;">Cancelar</button>
+      <button id="btnConfirmar" style="flex:1; background:linear-gradient(135deg,#2563eb,#1d4ed8); color:white;">Sim, Finalizar</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
